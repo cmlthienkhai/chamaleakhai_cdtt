@@ -2,7 +2,7 @@
 
 Thông tin sinh viên: Chamalea Khải
 
-Thông tin đề tại: Bán kính mắt
+Thông tin đề tại: Bán thời trang và dụng cụ bóng đá
 
 Công nghệ: php - laravel
 

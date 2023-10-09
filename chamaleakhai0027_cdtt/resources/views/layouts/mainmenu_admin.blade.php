@@ -2,7 +2,7 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ asset('dist/img/admin.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{ asset('dist/img/FootballTK.gif') }}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
         <a href="http://localhost/WEB/chamaleakhai0027_cdtt/public/admin/user" class="d-block">Thiên Khải</a>

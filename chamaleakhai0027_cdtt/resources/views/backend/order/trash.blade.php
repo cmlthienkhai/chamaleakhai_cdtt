@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Thùng rác đơn hàng</li>
+                        <li class="breadcrumb-item active">Thùng rác </li>
                     </ol>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
-                            <th style="width:170px">Code đơn hàng</th>
+                            <th style="width:170px">Mã đơn hàng</th>
                             <th style="width:170px">Email</th>
                             <th style="width:100px">Điện thoai</th>
                             <th class="text-center">Ngày tạo</th>

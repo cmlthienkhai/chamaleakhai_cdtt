@@ -80,7 +80,7 @@
                             <div class="mb-3">
                                 <label for="sort_order">Vị trí</label>
                                 <select name="sort_order" id="sort_order" class="form-control">
-                                    <option value="0">--chon vị trí--</option>
+                                    <option value="0">--chọn vị trí--</option>
                                     {{!!$html_sort_order!!}}
                                 </select>
                             </div>

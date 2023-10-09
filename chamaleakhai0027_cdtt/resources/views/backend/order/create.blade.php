@@ -42,7 +42,7 @@
         <div class="row">
           <div class="col-md-9">
             <div class="mb-3">
-              <label for="code">Code</label>
+              <label for="code">Mã đơn hàng</label>
               <textarea type="number" name="code" id="code" class="form-control" value="{{  old('code') }}" class="form-control"></textarea>
               @if ($errors ->has('code'))
               <div class="text-danger">
@@ -78,7 +78,7 @@
                @endif
             </div>
             <div class="mb-3">
-              <label for="deliveryphone"> Sô điện thoại </label>
+              <label for="deliveryphone"> Số điện thoại </label>
               <textarea type="tel" name="deliveryphone" placeholder="0912345678" pattern="[0-9]{4}[0-9]{3}[0-9]{3}" id="deliveryphone" value="{{  old('deliveryphone') }}" class="form-control"></textarea>
               @if ($errors ->has('deliveryphone'))
               <div class="text-danger">

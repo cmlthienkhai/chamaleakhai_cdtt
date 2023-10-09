@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Chi tiết tài khoản</h1>
+                    <h1>Chi tiết khách hàng</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Chi tiết tài khoản</li>
+                        <li class="breadcrumb-item active">Chi tiết khách hàng</li>
                     </ol>
                 </div>
             </div>
@@ -31,13 +31,13 @@
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="text-right">                            
-                            <a class="btn btn-sm btn-info" href="{{ route('user.index') }}">
+                            <a class="btn btn-sm btn-info" href="{{ route('customer.index') }}">
                                 <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
                             </a>                            
-                            <a class="btn btn-sm btn-primary" href="{{ route('user.edit',['user'=>$row->id]) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('customer.edit',['customer'=>$row->id]) }}">
                                 <i class=" fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" href="{{ route('user.trash',['user'=>$row->id]) }}">
+                            <a class="btn btn-sm btn-danger" href="{{ route('customer.trash',['customer'=>$row->id]) }}">
                                 <i class=" fas fa-trash"></i>
                             </a>
                         </div>
@@ -62,7 +62,7 @@
                             <td>{{ $row->id }}</td>
                         </tr>
                         <tr>
-                            <th>Tên</th>
+                            <th>Tên </th>
                             <td>{{ $row->name }}</td>
                         </tr>
                         <tr>
@@ -82,7 +82,7 @@
                             <td>{{ $row->gender }}</td>
                         </tr>
                         <tr>
-                            <th>SĐT</th>
+                            <th>Phone</th>
                             <td>{{ $row->phone }}</td>
                         </tr>
                         <tr>
@@ -90,7 +90,7 @@
                             <td>{{ $row->email }}</td>
                         </tr>
                         <tr>
-                            <th>Avatar</th>
+                            <th>Ảnh đại diện</th>
                             <td class="index-img">
                                 <img src="../public/images/user/{{ $row->image }}" class="card-img-top index-img" alt="{{ $row->image }}">
                             </td>
@@ -127,7 +127,6 @@
                 </table>
             </div>
             <!-- /.card-body -->
-            
             <!-- /.card-footer-->
         </div>
     </section>

@@ -13,14 +13,17 @@
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+   
 </head>
 <body class="hold-transition login-page">
+
 <div class="login-box">
+  
   <!-- /.login-logo -->
-  <div class="login--section pd--100-0 bg--overlay" data-bg-img="dist/img/photo4.jpg">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><i>Football</i><b>TK</b></a>
+      <img src="{{ asset('dist/img/Football.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8; width: 80px; height: 80px;">
+      <a href="#" class="h1"><h1><i>Football</i><b>TK</b></h1></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">{{ $error??"Thông tin đăng nhập" }}</p>
@@ -77,12 +80,15 @@
         <a href="register.html" class="text-center">Đăng ký</a>
       </p>
     </div>
+  </div>
     <!-- /.card-body -->
   </div>
   </div>
   <!-- /.card -->
 </div>
+</div>
 <!-- /.login-box -->
+
 
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
@@ -90,5 +96,16 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+ <style>
+        .login-page {
+          background-image: url({{ asset('dist/img/Football0.png') }});
+          background-size: cover;
+          background-position: center;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+    </style>
 </body>
 </html>

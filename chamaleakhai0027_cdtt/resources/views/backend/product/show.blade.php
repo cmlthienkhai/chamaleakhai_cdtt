@@ -130,27 +130,7 @@
                 </table>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-md-6">
-                       
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <div class="text-right">
-                            
-                            <a class="btn btn-sm btn-info" href="{{ route('product.index') }}">
-                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                            </a>                            
-                            <a class="btn btn-sm btn-primary" href="{{ route('product.edit',['product'=>$row->id]) }}">
-                                <i class=" fas fa-edit"></i>
-                            </a>
-                            <a class="btn btn-sm btn-danger" href="{{ route('product.trash',['product'=>$row->id]) }}">
-                                <i class=" fas fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- /.card-footer-->
         </div>
     </section>

@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Thùng rác </li>
+                        <li class="breadcrumb-item active">Thùng rác</li>
                     </ol>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="text-right">
-                            <a class="btn btn-sm btn-info" href="{{ route('category.index')  }}">
+                            <a class="btn btn-sm btn-info" href="{{ route('post.index')  }}">
                                 <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
                             </a>
                         </div>
@@ -45,7 +45,7 @@
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
                             <th class="text-center" style="width:100px">Hình</th>
-                            <th class="text-center" style="width:250px">Tên danh mục</th>
+                            <th class="text-center" style="width:250px">Tên tiêu đề</th>
                             <th class="text-center" style="width:250px">Tên thường</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Chức năng</th>
@@ -59,19 +59,19 @@
                             <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
                             <td>
-                            <img src="{{ asset('images/category/'.$row->image) }}" alt="{{ $row->image }}" class="img-fluid">
+                            <img src="{{ asset('images/product/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                             </td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->slug }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-info" href="{{ route('category.show',['category'=>$row->id]) }}">
+                                <a class="btn btn-sm btn-info" href="{{ route('post.show',['post'=>$row->id]) }}">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a class="btn btn-sm btn-primary" href="{{ route('category.restore',['category'=>$row->id]) }}">
+                                <a class="btn btn-sm btn-primary" href="{{ route('post.restore',['post'=>$row->id]) }}">
                                     <i class="fas fa-undo-alt"></i>
                                 </a>                                
-                                <form action="{{ route('category.destroy',['category'=>$row->id]) }}" method="POST">
+                                <form action="{{ route('post.destroy',['post'=>$row->id]) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-danger">
@@ -88,7 +88,7 @@
                 </table>
             </div>
             <!-- /.card-body -->
-           
+            
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->

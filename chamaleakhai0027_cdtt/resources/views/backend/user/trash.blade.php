@@ -27,9 +27,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                                    <i class="fa-solid fa-trash-can"></i> Xóa đã chọn
-                                </button>
+                                
                             </div>
                             <div class="col-md-6 text-right">
                                 <div class="text-right">
@@ -103,22 +101,7 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                                    <i class="fa-solid fa-trash-can"></i> Xóa đã chọn
-                                </button>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <div class="text-right">
-                                    <a class="btn btn-sm btn-info" href="{{ route('user.index') }}">
-                                        <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->

@@ -27,9 +27,7 @@
         <div class="card-header">
           <div class="row">
               <div class="col-md-6">
-                  <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                      <i class="fas fa-trash"></i> Xóa đã chọn
-                  </button>
+                  
               </div>
               <div class="col-md-6 text-right">
                   <div class="text-right">
@@ -103,23 +101,6 @@
         </table>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
-          <div class="row">
-              <div class="col-md-6">
-                  <a class="btn btn-sm btn-danger" href="">
-                      <i class="fas fa-trash" aria-hidden="true"></i> Xóa
-                  </a>
-              </div>
-              <div class="col-md-6 text-right">
-                  <a class="btn btn-sm btn-success" href="{{ route('product.create') }}">
-                      <i class="fas fa-plus"></i> Thêm
-                  </a>
-                  <a class="btn btn-sm btn-danger" href="{{ route('product.trash') }}">
-                      <i class="fas fa-trash"></i> Thùng rác
-                  </a>
-              </div>
-          </div>
-      </div>
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->

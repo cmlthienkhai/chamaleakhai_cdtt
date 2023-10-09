@@ -173,7 +173,7 @@
                                     <div class="mb-3">
                                         <label for="name">Họ và tên</label>
                                         <input name="name" id="name" type="text" class="form-control "
-                                            placeholder="vd: " value="{{ old('name') }}">
+                                            placeholder="vd:Admin" value="{{ old('name') }}">
                                         @if ($errors->has('name'))
                                             <div class="text-danger">
                                                 {{ $errors->first('name') }}
@@ -190,7 +190,7 @@
                                     <div class="mb-3">
                                         <label for="address">Địa chỉ</label>
                                         <input name="address" id="address" type="text" class="form-control "
-                                            placeholder="vd:" value="{{ old('address') }}">
+                                            placeholder="vd:Tp.HCM" value="{{ old('address') }}">
                                         @if ($errors->has('address'))
                                             <div class="text-danger">
                                                 {{ $errors->first('address') }}
@@ -221,19 +221,6 @@
 
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-12 text-right">
-                                    <button name="THEM" type="submit" class="btn btn-sm btn-success">
-                                        <i class="fas fa-save"></i> Thêm
-                                    </button>
-                                    <a class="btn btn-sm btn-info" href="{{ route('user.index') }}">
-                                        <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- /.card-footer-->
-                        </div>
                     </div>
                     <!-- /.card -->
                 </form>

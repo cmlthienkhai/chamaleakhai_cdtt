@@ -123,18 +123,7 @@
                     </div>
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-md-12 text-right">
-                            <button name="THEM" type="submit" class="btn btn-sm btn-success">
-                                <i class="fas fa-save"></i> Thêm
-                            </button>
-                            <a class="btn btn-sm btn-info" href="index.php?option=product">
-                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- /.card-footer-->
             </div>
             <!-- /.card -->

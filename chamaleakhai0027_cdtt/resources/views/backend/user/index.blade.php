@@ -118,26 +118,7 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                                    <i class="fa-solid fa-trash-can"></i> Xóa đã chọn
-                                </button>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <div class="text-right">
-                                    <a class="btn btn-sm btn-success" href="{{ route('user.create') }}">
-                                        <i class="fas fa-plus"></i> Thêm
-                                    </a>
-                                    <a class="btn btn-sm btn-danger" href="{{ route('user.trash') }}">
-                                        <i class="fas fa-trash" aria-hidden="true"></i> Thùng rác
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->

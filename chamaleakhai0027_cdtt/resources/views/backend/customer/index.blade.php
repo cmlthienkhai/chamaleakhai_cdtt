@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Thùng rác')
+@section('title', 'Khách hàng')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Thùng rác</h1>
+                    <h1>Danh sách khách hàng</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Thùng rác </li>
+                        <li class="breadcrumb-item active">Khách hàng</li>
                     </ol>
                 </div>
             </div>
@@ -27,28 +27,32 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        
+                       
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="text-right">
-                            <a class="btn btn-sm btn-info" href="{{ route('category.index')  }}">
-                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
+                            <a class="btn btn-sm btn-success" href="{{ route('customer.create') }}">
+                                <i class="fas fa-plus"></i> Thêm
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="{{ route('customer.trash') }}">
+                                <i class="fas fa-trash"></i> Thùng rác
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
+              </div>
             <div class="card-body">
                 @includeIf('backend.messageAlert', ['some' => 'data']) 
-                <table class="table table-bordered" id="myTable">
+                <table class="table table-bordered" id="myTable">                    
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
                             <th class="text-center" style="width:100px">Hình</th>
-                            <th class="text-center" style="width:250px">Tên danh mục</th>
-                            <th class="text-center" style="width:250px">Tên thường</th>
+                            <th style="width:150px">Tên tài khoản</th>
+                            <th style="width:150px">Email</th>
+                            <th style="width:100px">Phone</th>
                             <th class="text-center">Ngày tạo</th>
-                            <th class="text-center">Chức năng</th>
+                            <th style="width:200px" class="text-center">Chức năng</th>
                             <th class="text-center" style="width:20px">ID</th>
                         </tr>
                     </thead>
@@ -59,36 +63,40 @@
                             <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
                             <td>
-                            <img src="{{ asset('images/category/'.$row->image) }}" alt="{{ $row->image }}" class="img-fluid">
+                            <img src="{{ asset('images/customer/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                             </td>
                             <td>{{ $row->name }}</td>
-                            <td>{{ $row->slug }}</td>
+                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->phone }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-info" href="{{ route('category.show',['category'=>$row->id]) }}">
+                                @if ($row->status==1)
+                                <a class="btn btn-sm btn-success" href="{{ route('customer.status',['customer'=>$row->id]) }}">
+                                    <i class="fas fa-toggle-on"></i>
+                                </a>
+                                @else
+                                <a class="btn btn-sm btn-danger" href="{{ route('customer.status',['customer'=>$row->id]) }}">
+                                    <i class="fas fa-toggle-on"></i>
+                                </a>
+                                @endif
+                                <a class="btn btn-sm btn-info" href="{{ route('customer.show',['customer'=>$row->id]) }}">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a class="btn btn-sm btn-primary" href="{{ route('category.restore',['category'=>$row->id]) }}">
-                                    <i class="fas fa-undo-alt"></i>
+                                <a class="btn btn-sm btn-primary" href="{{ route('customer.edit',['customer'=>$row->id]) }}">
+                                    <i class=" fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" href="{{ route('customer.delete',['customer'=>$row->id]) }}" method="GET">
+                                    
+                                    <i class=" fas fa-trash"></i>
                                 </a>                                
-                                <form action="{{ route('category.destroy',['category'=>$row->id]) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
                             </td>
                             <td>{{ $row->id }}</td>
-                        </tr>
-
+                        </tr>              
                         @endforeach
                     </tbody>
-                    
                 </table>
             </div>
             <!-- /.card-body -->
-           
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->

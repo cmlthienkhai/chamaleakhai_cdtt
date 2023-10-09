@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css') }}">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">  
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
@@ -77,7 +77,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="http://localhost/WEB/chamaleakhai0027_cdtt/public/admin" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('dist/img/Football.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Football TK</span>
     </a>
 
@@ -87,18 +87,17 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class=" content">
     @yield("content")
   </div>
   <!-- /.content-wrapper -->
-
+<div class="fixed-bottom">
   <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-    </div>
+    
     <strong><a href="https://adminlte.io">AdminLTE.io</a> <b>Version</b> 3.2.0 <-> </a><a>CML Khải</a>
     </strong>
   </footer>
-
+</div>
   <aside class="control-sidebar control-sidebar-dark">
   </aside>
 </div>

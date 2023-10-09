@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Chi tiết tài khoản</h1>
+                    <h1>Chi tiết bài viết</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Chi tiết tài khoản</li>
+                        <li class="breadcrumb-item active">Chi tiết bài viết</li>
                     </ol>
                 </div>
             </div>
@@ -31,13 +31,13 @@
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="text-right">                            
-                            <a class="btn btn-sm btn-info" href="{{ route('user.index') }}">
+                            <a class="btn btn-sm btn-info" href="{{ route('post.index') }}">
                                 <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
                             </a>                            
-                            <a class="btn btn-sm btn-primary" href="{{ route('user.edit',['user'=>$row->id]) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('post.edit',['post'=>$row->id]) }}">
                                 <i class=" fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" href="{{ route('user.trash',['user'=>$row->id]) }}">
+                            <a class="btn btn-sm btn-danger" href="{{ route('post.trash',['post'=>$row->id]) }}">
                                 <i class=" fas fa-trash"></i>
                             </a>
                         </div>
@@ -62,47 +62,45 @@
                             <td>{{ $row->id }}</td>
                         </tr>
                         <tr>
-                            <th>Tên</th>
-                            <td>{{ $row->name }}</td>
+                            <th>Mã chủ đề</th>
+                            <td>{{ $row->topic_id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tiêu đề bài viết</th>
+                            <td>{{ $row->title }}</td>
                         </tr>
                         <tr>
                             <th>Tên thường</th>
                             <td>{{ $row->slug }}</td>
                         </tr>
                         <tr>
-                            <th>Username</th>
-                            <td>{{ $row->username }}</td>
-                        </tr>
-                        <tr>
-                            <th>Mật khẩu</th>
-                            <td>{{ $row->password }}</td>
-                        </tr>
-                        <tr>
-                            <th>Giới tính</th>
-                            <td>{{ $row->gender }}</td>
-                        </tr>
-                        <tr>
-                            <th>SĐT</th>
-                            <td>{{ $row->phone }}</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td>{{ $row->email }}</td>
-                        </tr>
-                        <tr>
-                            <th>Avatar</th>
-                            <td class="index-img">
-                                <img src="../public/images/user/{{ $row->image }}" class="card-img-top index-img" alt="{{ $row->image }}">
+                            <th>Chi tiết</th>
+                            <td>
+                                {{ $row->detail }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Vai trò</th>
-                            <td>{{ $row->roles }}</td>
+                            <th>Hình ảnh</th>
+                            <td class="index-img">
+                                <img src="{{ asset('images/post/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
+                            </td>
                         </tr>
                         <tr>
-                            <th>Địa chỉ</th>
-                            <td>{{ $row->address }}</td>
+                            <th>Kiểu</th>
+                            <td>
+                                {{ $row->type }}
+                            </td>
                         </tr>
+
+                        <tr>
+                            <th>Từ khóa</th>
+                            <td>{{ $row->metakey }}</td>
+                        </tr>
+                        <tr>
+                            <th>Mô tả</th>
+                            <td>{{ $row->metadesc }}</td>
+                        </tr>
+
                         <tr>
                             <th>Ngày tạo</th>
                             <td>{{ $row->created_at }}</td>

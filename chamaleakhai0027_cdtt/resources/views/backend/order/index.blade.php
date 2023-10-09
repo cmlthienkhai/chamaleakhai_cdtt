@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Đơn Hàng')
+@section('title', 'Danh sách đơn hàng')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -52,9 +52,9 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
-                            <th style="width:170px">Code đơn hàng</th>
+                            <th style="width:170px">Mã đơn hàng</th>
                             <th style="width:170px">Email</th>
-                            <th style="width:100px">Điện thoại</th>
+                            <th style="width:100px">Số điện thoại</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Trạng thái</th>
                             <th class="text-center" style="width:150px">Chức năng</th>

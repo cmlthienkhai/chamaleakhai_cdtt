@@ -84,14 +84,14 @@
                             <div class="mb-3">
                                 <label for="category_id">Danh mục</label>
                                 <select name="category_id" id="category_id"  class="form-control">
-                                    <option value="">--chon danh mục--</option>
+                                    <option value="">--chọn danh mục--</option>
                                     {{!!$html_category_id!!}}
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="brand_id">Brand</label>
                                 <select name="brand_id" id="brand_id"  class="form-control">
-                                    <option value="">--chon thương hiệu--</option>
+                                    <option value="">--chọn thương hiệu--</option>
                                     {{!!$html_brand_id!!}}
                                 </select>
                             </div>

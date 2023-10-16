@@ -48,13 +48,14 @@
                                 <input type="checkbox" id="select-all" name="checkId">
                             </div>
                         </th>
+                        <th class="text-center" style="width:20px">ID</th>
                         <th class="text-center" style="width:100px">Hình</th>
                         <th class="text-center" style="width:250px">Tên sản phẩm</th>
                         <th class="text-center" style="width:140px">Danh mục</th>
                         <th class="text-center" style="width:140px">Thương hiệu</th>
                         <th class="text-center" style="width:140px">Ngày tạo</th>
                         <th class="text-center" style="width:160px">Chức năng</th>
-                        <th class="text-center" style="width:20px">ID</th>
+                        
                     </tr>
                 </thead>
                 
@@ -63,10 +64,10 @@
                   <td>
                     <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                   </td>
+                  <td>{{ $row->name }}</td>
                   <td>
                     <img src="{{ asset('images/product/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                   </td>
-                  <td>{{ $row->name }}</td>
                   <td>{{ $row->category_id }}</td>
                   <td>{{ $row->brand_id }}</td>
                   <td>{{ $row->created_at }}</td>
@@ -85,7 +86,7 @@
                         </button>
                     </form>
                 </td>
-                  <td>{{ $row->id }}</td>
+                  
                 </tr>              
                 @endforeach
               </table>

@@ -46,13 +46,14 @@
                                 <thead class="bg-orange">
                                     <tr>
                                         <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                                        <th class="text-center" style="width:20px">ID</th>
                                         <th class="text-center" style="width:100px">Hình</th>
                                         <th style="width:150px">Tên tài khoản</th>
                                         <th style="width:150px">Email</th>
                                         <th style="width:100px">Phone</th>
                                         <th class="text-center">Ngày tạo</th>
                                         <th style="width:200px" class="text-center">Chức năng</th>
-                                        <th class="text-center" style="width:20px">ID</th>
+                                        
                                     </tr>
                                 </thead>
                             <tbody>
@@ -60,6 +61,9 @@
                                 <tr>
                                     <td class="text-center" style="width:20px">
                                         <input type="checkbox">
+                                    </td>
+                                    <td class="text-center" style="width:20px">
+                                        {{ $row->id }}
                                     </td>
                                     <td class="index-img">
                                         <img src="../public/images/user/{{ $row->image }}" class="card-img-top index-img" alt="{{ $row->image }}">
@@ -92,9 +96,7 @@
                                             </button>
                                         </form>
                                     </td>
-                                    <td class="text-center" style="width:20px">
-                                        {{ $row->id }}
-                                    </td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -46,13 +46,14 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                            <th class="text-center" style="width:20px">ID</th>
                             <th style="width:170px">Mã đơn hàng</th>
                             <th style="width:170px">Email</th>
                             <th style="width:100px">Điện thoai</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Trạng thái</th>
                             <th class="text-center" style="width:150px">Chức năng</th>
-                            <th class="text-center" style="width:20px">ID</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +61,8 @@
                         <tr>
                             <td>
                               <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
-                            </td>            
+                            </td>
+                            <td>{{ $row->id }}</td>            
                             <td>{{ $row->code }}</td>
                             <td>{{ $row->deliveryemail }}</td>
                             <td>{{ $row->deliveryphone }}</td>
@@ -91,7 +93,7 @@
                                 </button>
                             </form>
                         </td>
-                            <td>{{ $row->id }}</td>
+                            
                           </tr> 
 
                         @endforeach

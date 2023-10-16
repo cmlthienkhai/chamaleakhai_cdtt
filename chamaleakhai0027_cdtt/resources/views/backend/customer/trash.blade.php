@@ -44,13 +44,14 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                            <th class="text-center" style="width:20px">ID</th>
                             <th class="text-center" style="width:100px">Hình</th>
                             <th style="width:150px">Tên tài khoản</th>
                             <th style="width:150px">Email</th>
                             <th style="width:100px">Phone</th>
                             <th class="text-center">Ngày tạo</th>
                             <th style="width:200px" class="text-center">Chức năng</th>
-                            <th class="text-center" style="width:20px">ID</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +60,7 @@
                             <td>
                             <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
+                            <td>{{ $row->id }}</td>
                             <td>
                             <img src="{{ asset('images/customer/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                             </td>
@@ -81,7 +83,7 @@
                                     </button>
                                 </form>
                             </td>
-                            <td>{{ $row->id }}</td>
+                            
                         </tr>
 
                         @endforeach

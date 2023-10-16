@@ -49,12 +49,13 @@
             <thead class="bg-orange">
               <tr>
                   <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                  <th class="text-center" style="width:20px">ID</th>
                   <th class="text-center" style="width:100px">Tên chủ đề</th>
                   <th class="text-center" style="width:250px">Mô tả</th>
                   <th class="text-center" style="width:250px">Tên thường</th>
                   <th class="text-center">Ngày tạo</th>
                   <th class="text-center">Chức năng</th>
-                  <th class="text-center" style="width:20px">ID</th>
+                 
               </tr>
           </thead>
           
@@ -63,6 +64,7 @@
             <td class="text-center">
               <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
             </td>
+            <td>{{ $row->id }}</td>
             <td class="text-center">{{ $row->name }}</td>
             <td class="text-center">{{ $row->metadesc }}</td>
             <td class="text-center">{{ $row->slug }}</td>
@@ -89,7 +91,7 @@
                   <i class=" fas fa-trash"></i>
               </a>                                
           </td class="text-center">
-            <td>{{ $row->id }}</td>
+            
           </tr>              
           @endforeach
         </table>

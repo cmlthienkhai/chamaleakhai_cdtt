@@ -49,20 +49,22 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                            <th class="text-center" style="width:20px">ID</th>
                             <th class="text-center" style="width:100px">Hình</th>
                             <th class="text-center" style="width:250px">Tên danh mục</th>
                             <th class="text-center" style="width:250px">Tên thường</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Chức năng</th>
-                            <th class="text-center" style="width:20px">ID</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($list as $row)
+                        @foreach ($categorys as $row)
                         <tr>
                             <td>
                             <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
+                             <td>{{ $row->id }}</td>
                             <td>
                             <img src="{{ asset('images/category/'.$row->image) }}" alt="{{ $row->image }}" class="img-fluid">
                             </td>
@@ -91,7 +93,7 @@
                                     <i class=" fas fa-trash"></i>
                                 </a>                                
                             </td>
-                            <td>{{ $row->id }}</td>
+                           
                         </tr>              
                         @endforeach
                     </tbody>

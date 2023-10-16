@@ -16,8 +16,8 @@ class CategoryController extends Controller
     #danh sach
     public function index()
     {
-        $list = Category::where('status', '<>', '0')->orderBy('created_at', 'desc')->get();
-        return view('backend.category.index', compact('list'));
+        $categorys = Category::where('status', '<>', '0')->orderBy('created_at', 'desc')->get();
+        return view('backend.category.index', compact('categorys'));
     }
 
     #THEM

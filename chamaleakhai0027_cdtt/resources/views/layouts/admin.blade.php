@@ -29,7 +29,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Trang chủ dùng người</a>
+        <a href="http://localhost/WEB/chamaleakhai0027_cdtt/public" class="nav-link">Trang chủ dùng người</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="http://localhost/WEB/chamaleakhai0027_cdtt/public/admin" class="nav-link">Trang chủ quản trị </a>

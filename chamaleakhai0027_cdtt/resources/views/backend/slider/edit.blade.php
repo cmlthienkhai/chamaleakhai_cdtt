@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',$title??'slider')
+@section('title',$title??'Cập Nhật')
 @section('content')
 <form action="{{ route('slider.update',['slider'=> $row->id]) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>CẬP NHẬT SẢN PHẨM</h1>
+                        <h1>Cập nhật hình ảnh</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Cập nhật sản phẩm</li>
+                            <li class="breadcrumb-item active">Cập nhật hình ảnh</li>
                         </ol>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <button name="THEM" type="submit" class="btn btn-sm btn-success">
-                                <i class="fas fa-save"></i> Save[Thêm]
+                                <i class="fas fa-save"></i> Thêm
                             </button>
                             <a class="btn btn-sm btn-info" href="{{ route('slider.index')  }}">
                                 <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label for="name">Tên slider</label>
+                                <label for="name">Tên ảnh</label>
                                 <input name="name" id="name" type="text" class="form-control " placeholder="Tên slider"  value="{{ old('name',$row->name) }}">
                                 @if ( $errors->has('name') )
                                 <div class="text-danger">
@@ -73,7 +73,7 @@
                                 <div class=" col-md-6 mb-3">
                                     <label for="sort_order">Vị trí</label>
                                     <select name="sort_order" id="sort_order" class="form-control">
-                                        <option value="0">--chon vị trí--</option>
+                                        <option value="0">--chọn vị trí--</option>
                                         <?= $html_sort_order ?>;
                                     </select>
                                 </div>
@@ -98,18 +98,6 @@
                     
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-md-12 text-right">
-                            <button name="THEM" type="submit" class="btn btn-sm btn-success">
-                                <i class="fas fa-save"></i> Save[Thêm]
-                            </button>
-                            <a class="btn btn-sm btn-info" href="{{ route('slider.index')  }}">
-                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 <!-- /.card-footer-->
             </div>
             <!-- /.card -->

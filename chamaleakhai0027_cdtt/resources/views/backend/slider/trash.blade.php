@@ -46,12 +46,13 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
+                            <th class="text-center" style="width:20px">ID</th>
                             <th class="text-center" style="width:100px">Hình</th>
-                            <th class="text-center" style="width:250px">Tên slider</th>
+                            <th class="text-center" style="width:250px">Tên ảnh</th>
                             <th>Link</th>
                             <th class="text-center" style="width:140px">Ngày tạo</th>
                             <th class="text-center" style="width:200px">Chức năng</th>
-                            <th class="text-center" style="width:20px">ID</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,7 @@
                             <td>
                                 <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
+                            <td>{{ $row->id }}</td>
                             <td>
                                     <img src="{{ asset('images/product/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                             </td>
@@ -81,7 +83,7 @@
                                     </button>
                                 </form>
                             </td>
-                            <td>{{ $row->id }}</td>
+                            
                         </tr>
 
                         @endforeach
@@ -90,21 +92,7 @@
                 </table>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-md-6">
-                        <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                            <i class="fas fa-trash"></i> Xóa đã chọn
-                        </button>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <a class="btn btn-sm btn-info" href="{{ route('slider.index')  }}">
-                            <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.card-footer-->
+
         </div>
         <!-- /.card -->
 

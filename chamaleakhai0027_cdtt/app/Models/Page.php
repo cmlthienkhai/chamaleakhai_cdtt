@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
-    protected $table = 'cmlk_post';
+    protected $table = 'cmlk_page';
 }
 ?>

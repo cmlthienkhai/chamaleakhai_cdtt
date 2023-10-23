@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'page')
+@section('title', 'Thùng rác')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Thùng rác</li>
+                        <li class="breadcrumb-item active">Thùng rác </li>
                     </ol>
                 </div>
             </div>
@@ -27,9 +27,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <button class="btn btn-sm btn-danger" type="submit" name="DELETE_ALL">
-                            <i class="fas fa-trash"></i> Xóa đã chọn
-                        </button>
+                        
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="text-right">
@@ -46,12 +44,13 @@
                     <thead class="bg-orange">
                         <tr>
                             <th class="text-center" style="width:20px"><input type="checkbox"></th>
-                            <th class="text-center" style="width:100px">Hình</th>
-                            <th class="text-center" style="width:250px">Tiêu đề bài viết</th>
-                            <th class="text-center" style="width:250px">Chủ đề</th>
-                            <th class="text-center" style="width:140px">Ngày tạo</th>
-                            <th class="text-center" style="width:200px">Chức năng</th>
                             <th class="text-center" style="width:20px">ID</th>
+                            <th class="text-center" style="width:100px">Hình</th>
+                            <th class="text-center" style="width:250px">Tên danh mục</th>
+                            <th class="text-center" style="width:250px">Tên thường</th>
+                            <th class="text-center">Ngày tạo</th>
+                            <th class="text-center">Chức năng</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -60,11 +59,12 @@
                             <td>
                             <input type="checkbox" name="checkId[]" value="{{ $row->id }}">
                             </td>
+                            <td>{{ $row->id }}</td>
                             <td>
                             <img src="{{ asset('images/page/'.$row->image) }}" alt="{{ $row->image }}" class="img-fluid">
                             </td>
-                            <td>{{ $row->title }}</td>
-                            <td class="text-center"><textarea cols="30" rows="5">{{ $row->detail }}</textarea></td>
+                            <td>{{ $row->name }}</td>
+                            <td>{{ $row->slug }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td class="text-center">
                                 <a class="btn btn-sm btn-info" href="{{ route('page.show',['page'=>$row->id]) }}">
@@ -81,7 +81,7 @@
                                     </button>
                                 </form>
                             </td>
-                            <td>{{ $row->id }}</td>
+                            
                         </tr>
 
                         @endforeach
@@ -90,20 +90,7 @@
                 </table>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-md-6">
-                        <a class="btn btn-sm btn-danger" href="index.php?option=product&cat=trash">
-                            <i class="fas fa-trash" aria-hidden="true"></i> Xóa
-                        </a>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <a class="btn btn-sm btn-info" href="{{ route('page.index')  }}">
-                            <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                        </a>
-                    </div>
-                </div>
-            </div>
+           
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->

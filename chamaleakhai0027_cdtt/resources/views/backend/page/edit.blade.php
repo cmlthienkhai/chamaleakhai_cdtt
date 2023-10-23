@@ -1,7 +1,8 @@
 @extends('layouts.admin')
-@section('title', 'Cập Nhật')
+@section('title','Cập nhật')
 @section('content')
-<form action="{{ route('page.update',['menu'=> $menu->id]) }}" method="POST" enctype="multipart/form-data">
+
+<form action="{{ route('page.update',['page'=> $row->id]) }}" method="page" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="content-wrapper">
@@ -21,42 +22,96 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-                <div class="card-body">
-                    <form action="{{ route('menu.update', $menu->id) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label for="name">Tên</label>
-                            <input name="name" id="name" type="text" class="form-control" value="{{ $menu->name }}">
-                            @error('name')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
+    
+        <!-- Main content -->
+        <section class="content">
+    
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button name="THEM" type="submit" class="btn btn-sm btn-success">
+                                <i class="fas fa-save"></i> Thêm
+                            </button>
+                            <a class="btn btn-sm btn-info" href="{{ route('page.index')  }}">
+                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
+                            </a>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Mô tả</label>
-                            <textarea name="description" id="description" class="form-control" rows="4">{{ $menu->description }}</textarea>
-                            @error('description')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Giá</label>
-                            <input name="price" id="price" type="text" class="form-control" value="{{ $menu->price }}">
-                            @error('price')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Hình ảnh</label>
-                            <input name="image" id="image" type="file" class="form-control">
-                            @error('image')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
-                    </form>
+                    </div>
                 </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="title">Tiêu đề </label>
+                                <input name="title" id="title" type="text" class="form-control "  placeholder="Tiêu đề" value="{{ old('title',$row->title) }}">
+                                @if ($errors->has('title'))
+                                    <div class="text-danger">
+                                         {{ $errors->first('title') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="mb-3">
+                                <label for="detail">Chi tiết</label>
+                                <textarea name="detail" id="detail" cols="10" rows="2" class="form-control "   placeholder="Chi tiết">{{ old('detail',$row->detail) }}</textarea>
+                                @if ($errors->has('detail'))
+                                <div class="text-danger">
+                                    {{ $errors->first('detail') }}
+                                </div>
+                                @endif
+                            </div>
+                            <div class="mb-3">
+                                <label for="metadesc">Mô tả</label>
+                                <textarea name="metadesc" id="metadesc" cols="10" rows="2" class="form-control "   placeholder="Mô tả">{{ old('metadesc',$row->metadesc) }}</textarea>
+                                @if ($errors->has('metadesc'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('metadesc') }}
+                                            </div>
+                                @endif
+                            </div>
+                            <div class="mb-3">
+                                <label for="metakey">Từ khóa</label>
+                                <textarea name="metakey" id="metakey" cols="10" rows="2" class="form-control "   placeholder="Từ khóa">{{ old('metakey',$row->metakey) }}</textarea>
+                                @if ($errors->has('metakey'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('metakey') }}
+                                            </div>
+                                @endif
+                            </div>
+                        </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="topic_id">Chủ đề</label>
+                                    <select name="topic_id" id="topic_id"   class="form-control">
+                                        <option value="">--chọn chủ đề--</option>
+                                        {!! $html_topic_id !!}
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image">Hình ảnh</label>
+                                    <input name="image" id="image" type="file" class="form-control btn-sm">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status">Trạng thái</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="1" {{ ($row->status == 1) ? 'selected' : ''; }}>Xuất bản</option>
+                                        <option value="2" {{ ($row->status == 2) ? 'selected' : ''; }}>Chưa xuất bản</option>    
+                                    </select>
+                                </div>
+                            </div>
+                    
+                    
+                </div>
+                <!-- /.card-body -->
+                
+                <!-- /.card-footer-->
             </div>
+            <!-- /.card -->
+    
         </section>
-    </div>
+        <!-- /.content -->
+      </div>
+    
+</form>
 @endsection

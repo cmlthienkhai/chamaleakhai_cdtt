@@ -77,14 +77,14 @@
                             <div class="mb-3">
                                 <label for="category_id">Danh mục</label>
                                 <select name="category_id" id="category_id" class="form-control">
-                                    <option value="{{ old('category_id',$row->category_id) }}">--chon danh mục--</option>
+                                    <option value="{{ old('category_id',$row->category_id) }}">--chọn danh mục--</option>
                                     {{!!$html_category_id!!}}
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="brand_id">Thương hiệu</label>
                                 <select name="brand_id" id="brand_id" class="form-control">
-                                    <option value="{{ old('brand_id',$row->brand_id) }}">--chon thương hiệu--</option>
+                                    <option value="{{ old('brand_id',$row->brand_id) }}">--chọn thương hiệu--</option>
                                     {{!!$html_brand_id!!}}
                                 </select>
                             </div>

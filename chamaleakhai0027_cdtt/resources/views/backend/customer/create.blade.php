@@ -43,7 +43,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="username">Tài khoản</label>
-                                <input name="username" id="username" type="text" class="form-control "  placeholder="Tài khoảng">
+                                <input name="username" id="username" type="text" class="form-control "  placeholder="Tài khoản">
                                 @if ( $errors->has('username') )
                                 <div class="text-danger">
                                     {{ $errors->first('username') }}

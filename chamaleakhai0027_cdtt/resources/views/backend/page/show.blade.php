@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',$title??'CHI TIẾT')
+@section('title','Chi Tiết')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Chi tiết Trang</h1>
+                    <h1>Chi tiết trang đơn</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index')  }}">Bảng điều khiển</a></li>
-                        <li class="breadcrumb-item active">Chi tiết trang</li>
+                        <li class="breadcrumb-item active">Chi tiết trang đơn</li>
                     </ol>
                 </div>
             </div>
@@ -58,94 +58,74 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>Id</th>
-                            <td>{{  $row['id']  }}</td>
+                            <th>ID</th>
+                            <td>{{ $row->id }}</td>
                         </tr>
                         <tr>
                             <th>Mã chủ đề</th>
-                            <td>{{ $row['topic_id'] }}</td>
+                            <td>{{ $row->topic_id }}</td>
                         </tr>
                         <tr>
-                            <th>Tiêu đề bài viết</th>
-                            <td>{{ $row['title'] }}</td>
+                            <th>Tiêu đề </th>
+                            <td>{{ $row->title }}</td>
                         </tr>
                         <tr>
-                            <th>Slug</th>
-                            <td>{{ $row['slug'] }}</td>
+                            <th>Tên thường</th>
+                            <td>{{ $row->slug }}</td>
                         </tr>
                         <tr>
                             <th>Chi tiết</th>
                             <td>
-                                {{ $row['detail'] }}
+                                {{ $row->detail }}
                             </td>
                         </tr>
                         <tr>
                             <th>Hình ảnh</th>
                             <td class="index-img">
-                                <img src="../public/images/page/{{ $row['image'] }}" class="index-img" alt="{{ $row['image'] }}">
+                                <img src="{{ asset('images/page/'.$row->images) }}" alt="{{ $row->images }}" class="img-fluid">
                             </td>
                         </tr>
                         <tr>
                             <th>Kiểu</th>
                             <td>
-                                {{ $row['type'] }}
+                                {{ $row->type }}
                             </td>
                         </tr>
 
                         <tr>
                             <th>Từ khóa</th>
-                            <td>{{ $row['metakey'] }}</td>
+                            <td>{{ $row->metakey }}</td>
                         </tr>
                         <tr>
                             <th>Mô tả</th>
-                            <td>{{ $row['metadesc'] }}</td>
+                            <td>{{ $row->metadesc }}</td>
                         </tr>
 
                         <tr>
                             <th>Ngày tạo</th>
-                            <td>{{ $row['created_at'] }}</td>
+                            <td>{{ $row->created_at }}</td>
                         </tr>
                         <tr>
                             <th>Người tạo</th>
-                            <td>{{ $row['created_by'] }}</td>
+                            <td>{{ $row->created_by }}</td>
                         </tr>
                         <tr>
                             <th>Ngày sửa cuối</th>
-                            <td>{{ $row['updated_at'] }}</td>
+                            <td>{{ $row->updated_at }}</td>
                         </tr>
                         <tr>
                             <th>Người sửa cuối</th>
-                            <td>{{ $row['updated_by'] }}</td>
+                            <td>{{ $row->updated_by }}</td>
                         </tr>
                         <tr>
                             <th>Trạng thái</th>
-                            <td>{{ $row['status'] }}</td>
+                            <td>{{ $row->status }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-md-6">
-                       
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <div class="text-right">
-                            
-                            <a class="btn btn-sm btn-info" href="{{ route('page.index') }}">
-                                <i class="fas fa-arrow-circle-left"></i> Quay về danh sách
-                            </a>                            
-                            <a class="btn btn-sm btn-primary" href="{{ route('page.edit',['page'=>$row->id]) }}">
-                                <i class=" fas fa-edit"></i>
-                            </a>
-                            <a class="btn btn-sm btn-danger" href="{{ route('page.trash',['page'=>$row->id]) }}">
-                                <i class=" fas fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- /.card-footer-->
         </div>
     </section>

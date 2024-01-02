@@ -9,8 +9,12 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import ProductDetails from "../components/ProductDetails";
 import CartScreen from "../cart/CartScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import Profile from "../screens/Profile";
 import Order from "../screens/Order";
+import Login from "../screens/Login";
+import Register from "../screens/Register";
+import Address from "../screens/Address";
+import AddAddress from "../screens/AddAddress";
 
 
 const StackNavigator = () => {
@@ -35,20 +39,6 @@ const StackNavigator = () => {
           }}
         />
 
-        <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{
-            tabBarLabel: "Profile",
-            tabBarLabelStyle: { color: "#008E97" },
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Ionicons name="person" size={24} color="#008E97" />
-              ) : (
-                <Ionicons name="person-outline" size={24} color="black" />
-              ),
-          }}
-        />
 
         <Tab.Screen
           name="Cart"
@@ -65,13 +55,38 @@ const StackNavigator = () => {
               ),
           }}
         />
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarLabel: "Profile",
+            tabBarLabelStyle: { color: "#008E97" },
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Ionicons name="person" size={24} color="#008E97" />
+              ) : (
+                <Ionicons name="person-outline" size={24} color="black" />
+              ),
+          }}
+        />
+
       </Tab.Navigator>
+      
     );
   }
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen
           name="Main"
@@ -83,8 +98,16 @@ const StackNavigator = () => {
           component={ProductDetails}
           options={{ headerShown: false }}
         />
-       
-       
+        <Stack.Screen
+          name="Address"
+          component={Address}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Add"
+          component={AddAddress}
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen
           name="Order"

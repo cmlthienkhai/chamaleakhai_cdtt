@@ -18,13 +18,21 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "KHÓA_API_GOOGLE_MAPS_CỦA_BẠN"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "ios": {
-      "bundleIdentifier": "com.host.exponent"
+      "bundleIdentifier": "com.host.exponent",
+      "config": {
+        "googleMapsApiKey": "KHÓA_API_GOOGLE_MAPS_CỦA_BẠN"
+      }
     }
   }
 }

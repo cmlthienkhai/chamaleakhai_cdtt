@@ -4,13 +4,15 @@ import { useNavigation } from "@react-navigation/native";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import axios from "axios";
 import { UserType } from "./UserContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { auth } from '../firebase';
+import { signOut } from 'firebase/auth';
 
 const ProfileScreen = () => {
   const { userId, setUserId } = useContext(UserType);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: "",
@@ -29,17 +31,17 @@ const ProfileScreen = () => {
             alignItems: "center",
             gap: 6,
             marginRight: 12,
-            
           }}
         >
           <Ionicons name="notifications-outline" size={24} color="black" />
-
           <AntDesign name="search1" size={24} color="black" />
         </View>
       ),
     });
   }, []);
+
   const [user, setUser] = useState();
+
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
@@ -54,15 +56,18 @@ const ProfileScreen = () => {
     };
 
     fetchUserProfile();
-  }, []);
-  const logout = () => {
-    clearAuthToken();
+  }, [userId]); // Thêm userId vào dependency array để useEffect được gọi lại khi userId thay đổi
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      console.log("User signed out");
+      navigation.replace("Login");
+    } catch (error) {
+      console.error("Sign out error", error);
+    }
   };
-  const clearAuthToken = async () => {
-    await AsyncStorage.removeItem("authToken");
-    console.log("auth token cleared");
-    navigation.replace("Login");
-  };
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -71,7 +76,6 @@ const ProfileScreen = () => {
         );
         const orders = response.data.orders;
         setOrders(orders);
-
         setLoading(false);
       } catch (error) {
         console.log("error", error);
@@ -79,63 +83,84 @@ const ProfileScreen = () => {
     };
 
     fetchOrders();
-  }, []);
+  }, [userId]); // Thêm userId vào dependency array để useEffect được gọi lại khi userId thay đổi
+
   console.log("orders", orders);
+  console.log("User Data:", user);
+  const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    if (authUser) {
+      // Người dùng đã đăng nhập
+      console.log("Auth User:", authUser);
+      console.log("User Email:", authUser.email);
+    } else {
+      // Người dùng chưa đăng nhập
+      console.log("User not logged in");
+    }
+  });
+
   return (
     <ScrollView style={{ padding: 10, flex: 1, backgroundColor: "white" }}>
-      <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-        Welcome to {user?.name}
-      </Text>
+      <View style={styles.userInfo}>
+        <Image
+          source={require('../assets/ssstik.io_1686019921822.jpeg')}
+          style={styles.userImage}
+        />
+        <Text style={styles.userName}>Welcome {user?.email}</Text>
+      </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-          marginTop: 12,
-        }}
-      >
-        
-
+      <View style={styles.actionButtonContainer}>
         <Pressable
-          style={{
-            padding: 10,
-            backgroundColor: "#E0E0E0",
-            borderRadius: 25,
-            flex: 1,
+          style={styles.actionButton}
+          onPress={() => {
+            /* Add functionality for the "Thông tin tài khoản" button */
           }}
         >
-          <Text style={{ textAlign: "center" }}>Thông tin tài khoản</Text>
+          <Text style={styles.actionButtonText}>Thông tin tài khoản</Text>
         </Pressable>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-          marginTop: 12,
-        }}
-      >
-       
-
+      <View style={styles.actionButtonContainer}>
         <Pressable
           onPress={logout}
-          style={{
-            padding: 10,
-            backgroundColor: "#E0E0E0",
-            borderRadius: 25,
-            flex: 1,
-          }}
+          style={styles.actionButton}
         >
-          <Text style={{ textAlign: "center" }}>Đăng xuất</Text>
+          <Text style={styles.actionButtonText}>Đăng xuất</Text>
         </Pressable>
       </View>
-
     </ScrollView>
   );
 };
 
-export default ProfileScreen;
+const styles = StyleSheet.create({
+  userInfo: {
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  userImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  userName: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  actionButtonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 12,
+  },
+  actionButton: {
+    padding: 10,
+    backgroundColor: "#E0E0E0",
+    borderRadius: 25,
+    flex: 1,
+  },
+  actionButtonText: {
+    textAlign: "center",
+  },
+});
 
-const styles = StyleSheet.create({});
+export default ProfileScreen;
